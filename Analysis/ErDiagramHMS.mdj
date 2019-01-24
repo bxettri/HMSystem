@@ -187,7 +187,7 @@
 									"top": 293,
 									"width": 158.59716796875,
 									"height": 13,
-									"text": "Customer"
+									"text": "User"
 								},
 								{
 									"_type": "ERDColumnCompartmentView",
@@ -1629,7 +1629,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFofzeUTLdOFQE="
 					},
-					"name": "Customer",
+					"name": "User",
 					"ownedElements": [
 						{
 							"_type": "ERDRelationship",
@@ -1779,7 +1779,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFofzk+KreGWk8="
 							},
-							"name": "customerId",
+							"name": "userId",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -1789,7 +1789,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFofzk+KreGWk8="
 							},
-							"name": "customerName",
+							"name": "userName",
 							"length": 0
 						},
 						{
@@ -1798,7 +1798,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFofzk+KreGWk8="
 							},
-							"name": "customerAddress",
+							"name": "userAddress",
 							"length": 0
 						},
 						{
@@ -1807,7 +1807,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFofzk+KreGWk8="
 							},
-							"name": "customerContact",
+							"name": "userContact",
 							"length": 0
 						},
 						{
@@ -1816,7 +1816,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFofzk+KreGWk8="
 							},
-							"name": "customerEmail",
+							"name": "userEmail",
 							"length": 0
 						}
 					]
@@ -1903,7 +1903,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFofzrNT7fE1us="
 							},
-							"name": "customerId",
+							"name": "userId",
 							"length": 0,
 							"foreignKey": true
 						},
@@ -2020,7 +2020,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFof0OE/rgbFXw="
 							},
-							"name": "customerId",
+							"name": "userId",
 							"length": 0,
 							"foreignKey": true
 						},
@@ -2078,7 +2078,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFof0hDU7j6SMw="
 							},
-							"name": "customerId",
+							"name": "userId",
 							"length": 0,
 							"foreignKey": true
 						},
