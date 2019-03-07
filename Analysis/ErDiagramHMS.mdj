@@ -428,7 +428,7 @@
 									"top": 685,
 									"width": 111.6181640625,
 									"height": 13,
-									"text": "Food"
+									"text": "Item"
 								},
 								{
 									"_type": "ERDColumnCompartmentView",
@@ -1934,7 +1934,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFofzeUTLdOFQE="
 					},
-					"name": "Food",
+					"name": "Item",
 					"ownedElements": [
 						{
 							"_type": "ERDRelationship",
