@@ -35,5 +35,7 @@ Route::put('homeUpdate/{id}','userController@update');
 Route::get('/test','HMS_Controller@test');
 Route::get('admin/adminRoom','HMS_Controller@adminRoom');
 
+Route::get('admin/adminRoom','RoomsController@index');
+
 Route::put('admin/adminRoom','RoomsController@create');
 

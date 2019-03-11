@@ -22,7 +22,7 @@ class CreateBillingTable extends Migration
             $table->integer('bookingId')->unsigned();
             $table->foreign('bookingId')->references('bookingId')->on('booking');
             $table->date('billingDate');
-            $table->double('total');
+            $table->float('total');
             $table->timestamps();
         });
     }

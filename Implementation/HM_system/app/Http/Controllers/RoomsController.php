@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\rooms;
 use Illuminate\Http\Request;
+use DB;
 
 class RoomsController extends Controller
 {
@@ -14,7 +15,11 @@ class RoomsController extends Controller
      */
     public function index()
     {
-        //
+      $rooms=new rooms();
+      $rooms=$rooms->get();
+      return view ('admin.adminRoom',[
+          'room'=>$rooms
+      ]);
     }
 
     /**
@@ -24,11 +29,30 @@ class RoomsController extends Controller
      */
     public function create(Request $request)
     {
-        $room=new rooms;
-        $room->roomType=$request->roomType;
-        $room->roomPrice=$request->roomPrice;
-        $room->save();
-        return redirect()->to('/admin/adminRoom');
+        $rooms=new rooms();
+        $picInfo=$request->file('roomImage');
+        $picName=$picInfo->getClientOriginalName();
+        $picFolder="image/gallery/";
+        $picInfo->move($picFolder,$picName);
+        $picUrl=$picFolder.$picName;
+
+        if(rooms::where('roomImage','=',$picUrl)->exists())
+        {
+            return redirect('/admin/adminRoom')->with('roomNameExists','Same Image file name found. Please enter again');
+
+
+        }
+
+        else
+        {
+            $rooms->roomType=$request->roomType;
+            $rooms->roomPrice=$request->roomPrice;
+            $rooms->roomImage=$picUrl;
+            $rooms->save();
+            return redirect()->to('/admin/adminRoom')->with('success','Data added');
+        }
+
+
     }
 
     /**
