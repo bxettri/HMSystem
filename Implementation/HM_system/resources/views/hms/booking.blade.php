@@ -103,73 +103,50 @@
 	</div>
 	</nav>
 
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <p>Room type</p>
+            <div class="col-md-3">
+                        {{-- <input id="roomType" type="text" class="form-control{{ $errors->has('roomType') ? ' is-invalid' : '' }}" name="roomType" value="{{ old('roomType') }}" required autofocus> --}}
 
-	<section class="booking bg-dark">
-	<H1 class="text-center text-white">Booking form</h1><br/><br/>
-	<div class="row">
-	<div class="input-group col-md-4">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Room Type</label>
-  </div>
-  <select class="custom-select" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">Deluxe</option>
-    <option value="2">Economy</option>
-    <option value="3">Honeymoon suite</option>
-  </select>
-</div>
-
-	<div class="input-group col-md-4">
-   <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Check in</label>
-  </div>
-  <div class="">
-    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-  </div>
-</div>
-
-<div class="input-group col-md-4">
-   <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Check out</label>
-  </div>
-  <div class="">
-    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-  </div>
-</div>
-</section>
+                        <select class="form-control{{ $errors->has('roomType') ? ' is-invalid' : '' }}" value="{{ old('roomType') }}" name="roomType" required>
+                            <option class="" value=""> Select room Type</option>
+                            @foreach($booking as $data)
+                            <option class="" value="{{$data->roomTypeId}}">{{$data->roomType}}</option>
+                            @endforeach
+                          </select>
 
 
 
-	<section class="booking bg-dark">
-	<div class="row">
-	<div class="input-group col-md-4">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Adult</label>
-  </div>
-  <select class="custom-select" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-</div>
 
-	<div class="input-group col-md-4">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Child</label>
-  </div>
-  <select class="custom-select" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-</div>
+                        @if ($errors->has('roomType'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('roomType') }}</strong>
+                            </span>
+                        @endif
+            </div>
 
-<div class="input-group col-md-4">
- <button type="submit" class="btn btn-primary" name="nSig">Book now</button>
-</div>
-</section>
+            <div class="col-md-4">
+                    <div class="row">
+                            <p>Check In</p>&nbsp;&nbsp;
+                            <input class="datetime" type="date" value="2011-08-19" id="example-date-input">
+                        </div>
+            </div>
+
+
+            <div class="col-md-4">
+
+                    <div class="row">
+                            <p>Check Out</p>&nbsp;&nbsp;
+                            <input class="datetime" type="date" value="2011-08-19" id="example-date-input">
+
+                        </div>
+            </div>
+
+
+        </div>
+    </div>
+
 
 	<footer class="footer bg-light clearfix">
 	  <div class="row">

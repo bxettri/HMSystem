@@ -15,11 +15,9 @@ class RoomsController extends Controller
      */
     public function index()
     {
-      $rooms=new rooms();
-      $rooms=$rooms->get();
-      return view ('admin.adminRoom',[
-          'room'=>$rooms
-      ]);
+        $roomType=DB::table('room_type')->get();
+        $room=DB::table('room')->join('room_type','room_type.roomTypeId','=','room.roomTypeId')->get();
+      return view ('admin.adminRoom',compact('roomType','room') );
     }
 
     /**
@@ -45,8 +43,10 @@ class RoomsController extends Controller
 
         else
         {
-            $rooms->roomType=$request->roomType;
+            $rooms->roomTypeId=$request->roomType;
             $rooms->roomPrice=$request->roomPrice;
+            $rooms->roomNum=$request->roomNumber;
+            $rooms->roomDiscription=$request->roomDiscription;
             $rooms->roomImage=$picUrl;
             $rooms->save();
             return redirect()->to('/admin/adminRoom')->with('success','Data added');
@@ -83,21 +83,53 @@ class RoomsController extends Controller
      * @param  \App\rooms  $rooms
      * @return \Illuminate\Http\Response
      */
-    public function edit(rooms $rooms)
+    public function edit(rooms $id)
     {
-        //
+        $rooms=Rooms::find($id);
+
+        return view ('/admin/adminRoom',['rooms'=>$rooms]);
     }
 
     /**
+     *
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\rooms  $rooms
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, rooms $rooms)
+    public function update(Request $request, $id)
     {
-        //
+        $rooms=rooms::find($id);
+        if ($request->hasfile('image'))
+         {
+            app('files')->delete($rooms->image);
+            $picInfo = $request->file ('image');
+            $picName = $picInfo->getClientOriginalName();
+            $picfolder = "image/gallery/";
+            $picInfo->move($picfolder,$picName);
+            $picUrl=$picfolder.$picName;
+            if (rooms::where('image', '=', $picUrl)->exists())
+            {
+
+                return redirect('admin/adminRoom')->with('imageNameExits', 'image file name already exits');
+            }
+            else
+             {
+                $rooms->image=$picUrl;
+            }
+        }
+
+        $up_req=$request->all();
+
+        $rooms->productname=$up_req['roomType'];
+        $rooms->model=$up_req['roomPrice'];
+        $rooms->Price=$up_req['roomImage'];
+        $rooms->description=$up_req['description'];
+
+        $rooms->save();
+
+        return redirect()->to('admin/adminRoom')->withSuccess('Rooms updated!!!');
     }
 
     /**
@@ -106,8 +138,12 @@ class RoomsController extends Controller
      * @param  \App\rooms  $rooms
      * @return \Illuminate\Http\Response
      */
-    public function destroy(rooms $rooms)
+    public function destroy($id)
     {
-        //
+        // $rooms=rooms::find($id);
+        $room = DB::table('room')->where('roomId',$id);
+        $room->delete();
+        return redirect()->back()->withSuccess('Rooms deleted!!!');
+
     }
 }

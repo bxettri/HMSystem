@@ -15,8 +15,6 @@ class CreateBillingTable extends Migration
     {
         Schema::create('billing', function (Blueprint $table) {
             $table->increments('billingId');
-            $table->integer('id')->unsigned();
-            $table->foreign('id')->references('id')->on('users');
             $table->integer('kotId')->unsigned();
             $table->foreign('kotId')->references('kotId')->on('kot');
             $table->integer('bookingId')->unsigned();

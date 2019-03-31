@@ -27,7 +27,7 @@ Route::get('auth/register','HMS_Controller@register');
 Route::get('auth/login','HMS_Controller@login');
 Route::get('/aboutus','HMS_Controller@aboutus');
 Route::get('/gallery','HMS_Controller@gallery');
-Route::get('/booking','HMS_Controller@booking');
+Route::get('/booking','BookingController@index');
 
 Route::get('homeEdit/{id}','userController@edit');
 Route::put('homeUpdate/{id}','userController@update');
@@ -39,3 +39,9 @@ Route::get('admin/adminRoom','RoomsController@index');
 
 Route::put('admin/adminRoom','RoomsController@create');
 
+
+Route::get('admin/adminRoom/{roomId}','RoomsController@edit')->name('room.edit');
+
+Route::delete('admin/adminRoom/{roomId}','RoomsController@destroy')->name('room.delete');
+
+Route::post('/roomType','RoomTypeController@index');

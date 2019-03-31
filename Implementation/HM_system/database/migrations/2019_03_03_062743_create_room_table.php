@@ -15,9 +15,12 @@ class CreateRoomTable extends Migration
     {
         Schema::create('room', function (Blueprint $table) {
             $table->increments('roomId');
-            $table->string('roomType');
+            $table->integer('roomTypeId')->unsigned();
+            $table->foreign('roomTypeId')->references('roomTypeId')->on('room_type');
+            $table->integer('roomNum');
             $table->float('roomPrice');
             $table->string('roomImage');
+            $table->longText('roomDiscription');
             $table->timestamps();
         });
     }
