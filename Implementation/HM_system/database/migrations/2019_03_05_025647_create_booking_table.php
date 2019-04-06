@@ -22,7 +22,6 @@ class CreateBookingTable extends Migration
             $table->date('bookingDate');
             $table->date('checkInDate');
             $table->date('checkOutDate');
-            $table->integer('roomQuantity');
             $table->timestamps();
         });
     }

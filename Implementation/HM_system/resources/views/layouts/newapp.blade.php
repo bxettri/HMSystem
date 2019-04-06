@@ -21,10 +21,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light bg-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('APP.NAME', 'HMS') }}
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    {{ config('APP.NAME', 'Hotel management system') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -32,17 +32,26 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                    <ul class="navbar-nav font-weight-bold mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{!! url('/home') !!}">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{!! url('/booking') !!}">Booking</a>
+                          </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="{!! url('/gallery') !!}">Gallery</a>
+                          </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="{!! url('/aboutus') !!}">About us</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>

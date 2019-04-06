@@ -21,6 +21,7 @@
 </head>
 <body>
     <div id="app">
+        <div class="container">
         <nav class="navbar navbar-expand-md navbar-light bg-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -33,9 +34,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav font-weight-bold mr-auto">
+                        @auth
+
+
                         <li class="nav-item active">
-                            <a class="nav-link" href="{!! url('/') !!}">Home</a>
+                            <a class="nav-link" href="{!! url('/home') !!}">Home</a>
                           </li>
+                          @endauth
+                          @guest
+                          <li class="nav-item active">
+                                <a class="nav-link" href="{!! url('/') !!}">Home</a>
+                              </li>
+                          @endguest
                           <li class="nav-item">
                             <a class="nav-link" href="{!! url('/booking') !!}">Booking</a>
                           </li>
@@ -80,6 +90,7 @@
                 </div>
             </div>
         </nav>
+        </div>
 
         <main class="py-4">
             @yield('content')

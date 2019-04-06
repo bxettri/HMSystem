@@ -1,12 +1,20 @@
-@extends('layouts.app')
+<div class="container">
+@include('hms/header')
+@include('hms/nav')
+</div>
 
-@section('content')
+
 
 <div class="container">
+<div class="buttons mt-2">
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Your profile</button>
 
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".profile-lg">My profile</button>
+        <a href="{!! url('Room') !!}" class="btn btn-primary mb-2" role="button" aria-pressed="true">My Room</a>
+        <a href="{!! url('RoomService') !!}" class="btn btn-primary mb-2" role="button" aria-pressed="true">Room Service</a>
+</div>
+
+        <div class="modal fade profile-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content text-dark">
             <div class="modal-header bg-light">
@@ -147,6 +155,35 @@
          </form>
             </div>
 
+<div class="container">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="{{URL::to('HMSystemLayout/image/hotel1.jpg')}}" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{URL::to('HMSystemLayout/image/hotel2.jpg')}}" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{URL::to('HMSystemLayout/image/hotel3.jpg')}}" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                  @include('hms/footer')
+</div>
 
 </div>
-@endsection
+

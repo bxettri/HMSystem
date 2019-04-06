@@ -49,4 +49,18 @@ class HMS_Controller extends Controller
        return view('admin.adminRoom');
    }
 
+   public function adminService()
+   {
+       return view('admin.adminService');
+   }
+
+   public function Room()
+   {
+       return view ('hms.Room');
+   }
+
+   public function RoomService()
+   {
+        return view ('hms.RoomService');
+   }
 }

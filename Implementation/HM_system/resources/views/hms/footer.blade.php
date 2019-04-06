@@ -1,3 +1,4 @@
+
 <footer class="footer bg-light clearfix">
         <div class="row">
      <div class="container col-md-4">
@@ -9,12 +10,19 @@
       <div class="container col-md-4">
       <h2 class="text-info">Quick Links</h2>
        <ul class="list-unstyled">
-              <li><a href="#"></a></li>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Booking</a></li>
-              <li><a href="#">Forum</a></li>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="#">About</a></li>
+              <li><a href=""></a></li>
+              @auth
+
+
+              <li><a href="/home">Home</a></li>
+              @endauth
+              @guest
+              <li><a href="/">Home</a></li>
+              @endguest
+              <li><a href="/booking">Booking</a></li>
+
+              <li><a href="/gallery">Gallery</a></li>
+              <li><a href="/aboutus">About</a></li>
             </ul>
     </div>
       <div class="footer3 col-md-4">
@@ -44,3 +52,4 @@
       <div class="container text-center copy">
    &nbsp;&nbsp;&nbsp;&copy; BibekDahal-Design -2019</div>
   </footer>
+

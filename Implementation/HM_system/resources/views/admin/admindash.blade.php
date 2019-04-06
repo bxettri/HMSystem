@@ -84,4 +84,7 @@
     <div class="content">
         <a href="{!! url('admin/adminRoom') !!}" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Room Details</a>
     </div>
+    <div class="content">
+        <a href="{!! url('admin/adminService') !!}" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Services</a>
+    </div>
 </body>

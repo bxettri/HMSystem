@@ -63,11 +63,11 @@
                         </div>
 
 
-                        <div class="form-group row">
-                                <label for="uTypeid" class="col-md-4 col-form-label text-md-right">{{ __('user Type') }}</label>
+                        <div class="form-group row ">
+                                <label for="uTypeid" class="col-md-4 col-form-label text-md-right" hidden>{{ __('user Type') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="uTypeid" type="text" class="form-control" name="uTypeid"  value="1" readonly>
+                                    <input id="uTypeid" type="text" class="form-control" name="uTypeid"  value="1" hidden>
 
 
                                 </div>
